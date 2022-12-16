@@ -1,6 +1,8 @@
 # Uboa-Garbage-Collector
 A pauseless garbage collector in C.
 
+## V0.0.0dev1有个小bug，我这边今晚紧急修改，并且开源。
+
 ## 都什么年代了，还有人用传统的malloc/free？
 我不知道，但是我开发了一款无暂停的垃圾回收器，专门针对C/C++设计。
 
