@@ -17,6 +17,7 @@ src = \
 all:
 	mkdir -p build
 	mkdir -p build/include && mkdir -p build/lib
+	cp README.md build/
 	cp src/uboa.h build/include/
 	$(cc) $(macro) $(std) -lpthread -c $(src)
 	ar rcs $(out) *.o
