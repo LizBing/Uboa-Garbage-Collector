@@ -10,6 +10,8 @@ A pauseless garbage collector in C.
 ## 为什么要用C做？
 C是一门非常优秀的语言，它的语法简单，编译速度快，运行速度快，内存管理简单。
 
+## 基本操作接口（v0.0.0dev2）
+
 ### 1. 垃圾回收器的初始化
 void uboa_init(int nGCWorkers, size_t xmx, long timerInterval_min, bool enableRuleProactive, const char* logFilePath);
 
