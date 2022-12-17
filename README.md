@@ -1,8 +1,6 @@
 # Uboa-Garbage-Collector
 A pauseless garbage collector in C.
 
-## V0.0.0dev1有个小bug，我这边今晚紧急修改，并且开源。
-
 ## 都什么年代了，还有人用传统的malloc/free？
 我不知道，但是我开发了一款无暂停的垃圾回收器，专门针对C/C++设计。
 
@@ -15,7 +13,7 @@ C是一门非常优秀的语言，它的语法简单，编译速度快，运行�
 ## 为什么要用静态库？
 我嫌自己的代码太烂，不想让别人看到。往后我也会放出一些接口，大家可以覆写它们以来实现特殊的目的。
 
-## 关于接口的说明(Version 0.0.0dev1)
+## 关于接口的说明(Version 0.0.0dev2)
 ### 1. 垃圾回收器的初始化
 void uboa_init(int nGCWorkers, size_t xmx, long timerInterval_min, bool enableRuleProactive, const char* logFilePath);
 
