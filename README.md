@@ -10,10 +10,6 @@ A pauseless garbage collector in C.
 ## 为什么要用C做？
 C是一门非常优秀的语言，它的语法简单，编译速度快，运行速度快，内存管理简单。
 
-## 为什么要用静态库？
-我嫌自己的代码太烂，不想让别人看到。往后我也会放出一些接口，大家可以覆写它们以来实现特殊的目的。
-
-## 关于接口的说明(Version 0.0.0dev2)
 ### 1. 垃圾回收器的初始化
 void uboa_init(int nGCWorkers, size_t xmx, long timerInterval_min, bool enableRuleProactive, const char* logFilePath);
 
