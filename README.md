@@ -1,5 +1,5 @@
 # Uboa-Garbage-Collector
-A pauseless garbage collector in C.
+针对C/C++设计并实现的无暂停的(pauseless)垃圾回收器(GC)。特点有三个：精简！精简！还是**的精简！
 
 ## 都什么年代了，还有人用传统的malloc/free？
 我不知道，但是我开发了一款无暂停的垃圾回收器，专门针对C/C++设计。
