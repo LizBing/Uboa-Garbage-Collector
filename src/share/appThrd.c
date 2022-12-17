@@ -1,7 +1,5 @@
 #include "appThrd.h"
-#include "barrier.h"
 
-static const intptr_t null = 0;
 static atomic_flag sl = ATOMIC_FLAG_INIT;
 static AppThrd* head = NULL;
 
@@ -34,7 +32,7 @@ void forEachRoot(void(*func)(AppThrd*)) {
     }
 }
 
-AppThrdHandle uboa_createAppThrdHandle(void* stack) {
+uboa_appThrdHandle uboa_createAppThrdHandle(void* stack) {
     AppThrd* at = stack;
     memset(at, 0, sizeof(AppThrd));
 
@@ -51,7 +49,7 @@ AppThrdHandle uboa_createAppThrdHandle(void* stack) {
     return at;
 }
 
-void uboa_destroyAppThrdHandle(AppThrdHandle hdl) {
+void uboa_destroyAppThrdHandle(uboa_appThrdHandle hdl) {
     while(atomic_flag_test_and_set(&sl));
 
     AppThrd* prev = hdl->prev, *next = hdl->next;
@@ -68,40 +66,12 @@ void uboa_destroyAppThrdHandle(AppThrdHandle hdl) {
     while(atomic_flag_test_and_set(&hdl->flag));
 }
 
-uboa_reference uboa_null() {
-    return &null;
-}
-
-uboa_reference uboa_pushReference(AppThrdHandle hdl) {
+uboa_reference uboa_pushReference(uboa_appThrdHandle hdl) {
     uboa_reference ref = hdl->stack + hdl->size++;
     *ref = NULL;
     return ref;
 }
 
-void uboa_popReferences(AppThrdHandle hdl, size_t n) {
+void uboa_popReferences(uboa_appThrdHandle hdl, size_t n) {
     hdl->size -= n;
-}
-
-void uboa_assign(uboa_reference dst, uboa_reference src) {
-    *dst = loadValueBarrier(src);
-}
-
-bool uboa_isNull(uboa_reference r) {
-    return !*r;
-}
-
-intptr_t uboa_load(uboa_reference r, off_t off) {
-    return *(intptr_t*)(((Object*)loadValueBarrier(r))->data + off);
-}
-
-void uboa_store(uboa_reference r, off_t off, intptr_t v) {
-    *(intptr_t*)(((Object*)loadValueBarrier(r))->data + off) = v;
-}
-
-void uboa_loadReference(uboa_reference dst, uboa_reference src, off_t off) {
-    uboa_assign(dst, ((Object*)loadValueBarrier(src))->data + off);
-}
-
-void uboa_storeReference(uboa_reference dst, off_t off, uboa_reference src) {
-    *(uboa_reference)(((Object*)loadValueBarrier(dst))->data + off) = *src;
 }

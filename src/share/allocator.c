@@ -38,7 +38,7 @@ infile_inline(size_t align(size_t s, int alignment)) {
     return s - n + alignment;
 }
 
-infile_inline(void* edenAllocSmall(AppThrdHandle hdl, size_t s, Page** src)) {
+infile_inline(void* edenAllocSmall(uboa_appThrdHandle hdl, size_t s, Page** src)) {
     Page* p = hdl->TLAB;
 
     void* ret = Page_alloc(p, s);
@@ -118,7 +118,7 @@ inline void* memAlloc(size_t s) {
     return survAllocSmall(align(s, alignmentSmall), NULL);
 }
 
-void uboa_new(AppThrdHandle hdl, uboa_reference r, size_t s, uboa_reference oopRef) {
+void uboa_new(uboa_appThrdHandle hdl, uboa_reference r, size_t s, uboa_reference oopRef) {
     uboa_newArray(hdl, r, s, 1, oopRef);
 }
 
@@ -129,7 +129,7 @@ inline void Object_init(Object* this, Page* p) {
         LargeObject_push(this);
 }
 
-void uboa_newArray(AppThrdHandle hdl, uboa_reference r, size_t s, size_t count, uboa_reference oopRef) {
+void uboa_newArray(uboa_appThrdHandle hdl, uboa_reference r, size_t s, size_t count, uboa_reference oopRef) {
     Object* ptr = NULL;
     Page* src = NULL;
 

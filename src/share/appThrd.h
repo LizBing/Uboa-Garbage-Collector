@@ -6,7 +6,7 @@
 
 #include "../os/thread.h"
 
-typedef struct AppThrd AppThrd, *AppThrdHandle;
+typedef struct AppThrd AppThrd, *uboa_appThrdHandle;
 struct AppThrd {
     Page* TLAB;
 

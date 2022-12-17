@@ -5,7 +5,7 @@
 
 #include <unistd.h>
 
-AppThrdHandle statics = NULL;
+uboa_appThrdHandle statics = NULL;
 uboa_reference oop = NULL;
 
 const size_t length = 15;
@@ -13,7 +13,7 @@ const off_t numOff = sizeof(off_t) * length;
 off_t* map = NULL;
 
 void foo(long num) {
-    AppThrdHandle hdl = uboa_createAppThrdHandle(alloca(1024));
+    uboa_appThrdHandle hdl = uboa_createAppThrdHandle(alloca(1024));
     uboa_reference ref[length];
     for(int i = 0; i < length; ++i) 
         ref[i] = uboa_pushReference(hdl);
@@ -27,21 +27,20 @@ void foo(long num) {
             else
                 uboa_new(hdl, ref[i], 1l << 24, oop);
 
-            uboa_store(ref[i], numOff, 114514);
+            uboa_storeInt32(ref[i], numOff, 114514);
         }
     )
-
     
     for(int a = 0; a < 1008600; ++a) {
         uboa_safeRegion(
             for(int i = 0; i < length; ++i) {
-                assert(114514 == uboa_load(ref[i], numOff));
+                assert(114514 == uboa_loadInt32(ref[i], numOff));
 
                 for(int j = 0; j < length; ++j) {
                     uboa_reference tmp = uboa_pushReference(hdl);
 
                     uboa_new(hdl, tmp, 128, uboa_null());
-                    uboa_store(tmp, numOff, 114514);
+                    uboa_storeInt32(tmp, numOff, 114514);
 
                     uboa_popReferences(hdl, 1);
                 }
@@ -52,7 +51,7 @@ void foo(long num) {
     uboa_safeRegion(
         for(int i = 0; i < length; ++i) {
             uboa_loadReference(ref[i], ref[i], map[i]);
-            assert(114514 == uboa_load(ref[i], numOff));
+            assert(114514 == uboa_loadInt32(ref[i], numOff));
         }
     )
 

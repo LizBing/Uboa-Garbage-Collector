@@ -1,7 +1,7 @@
 #ifndef UBOA_GC_STDAFX_
 #define UBOA_GC_STDAFX_
 
-typedef struct AppThrd AppThrd, *AppThrdHandle;
+typedef struct AppThrd AppThrd, *uboa_appThrdHandle;
 
 #define UBOA_GC_SOURCE_
 #include "../uboa.h"

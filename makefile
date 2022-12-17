@@ -4,7 +4,7 @@ out = build/lib/libuboa.a
 
 macro = \
 	-DBUILD_DATE="\"12/17/2022, Saturday\"" \
-	-DGC_VERSION="\"0.0.0.dev2\"" \
+	-DGC_VERSION="\"0.0.0.dev3\"" \
 	-DCOPYRIGHT="\"Copyright\(c\) 2022, Lizbing. All rights reserved.\"" \
 	-DGC_PRODUCT_NAME="\"Uboa Garbage Collector\"" \
 	-DFEEDBACK_EMAIL="\"feedback@relight.team\""
