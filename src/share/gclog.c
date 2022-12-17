@@ -1,8 +1,6 @@
 #include "gclog.h"
 #include "../util/queue.h"
 
-#include "../../build/build.h"
-
 typedef struct Log Log;
 struct Log {
     ListNode n;

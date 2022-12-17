@@ -11,8 +11,6 @@
 #include "vm.h"
 #include "workStack.h"
 
-#include "../../build/build.h"
-
 Runtime rt = { 0 };
 int nGCWorkers = 0;
 size_t XMX = 0;
