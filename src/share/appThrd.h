@@ -8,7 +8,7 @@
 
 typedef struct AppThrd AppThrd, *uboa_appThrdHandle;
 struct AppThrd {
-    Page* TLAB;
+    _Atomic(Page*) TLAB;
 
     atomic_flag flag;
     AppThrd* prev, *next;

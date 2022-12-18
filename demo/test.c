@@ -13,10 +13,12 @@ const off_t numOff = sizeof(off_t) * length;
 off_t* map = NULL;
 
 void foo(long num) {
-    uboa_appThrdHandle hdl = uboa_createAppThrdHandle(alloca(1024));
-    uboa_reference ref[length];
-    for(int i = 0; i < length; ++i) 
-        ref[i] = uboa_pushReference(hdl);
+    uboa_safeRegion(
+        uboa_appThrdHandle hdl = uboa_createAppThrdHandle(alloca(1024));
+        uboa_reference ref[length];
+        for(int i = 0; i < length; ++i) 
+            ref[i] = uboa_pushReference(hdl);
+    )
 
     uboa_safeRegion(
         for(int i = 0; i < length; ++i) {
@@ -53,9 +55,9 @@ void foo(long num) {
             uboa_loadReference(ref[i], ref[i], map[i]);
             assert(114514 == uboa_loadInt32(ref[i], numOff));
         }
-    )
 
-    uboa_destroyAppThrdHandle(hdl);
+        uboa_destroyAppThrdHandle(hdl);
+    )
 }
 
 int main() {
@@ -64,11 +66,10 @@ int main() {
     map = alloca(sizeof(off_t) * length);
     for(int i = 0; i < length; ++i) 
         map[i] = i * 8;
-    
-    statics = uboa_createAppThrdHandle(alloca(1024));
-    oop = uboa_pushReference(statics);
 
     uboa_safeRegion(
+        statics = uboa_createAppThrdHandle(alloca(1024));
+        oop = uboa_pushReference(statics);
         uboa_new_Oop(statics, oop, length, map);
     )
 

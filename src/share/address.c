@@ -27,5 +27,5 @@ inline int inPageOffsSmall(intptr_t n) {
 }
 
 inline int inPageOffsMedium(intptr_t n) {
-    return (n & (pageSizeMedium - 1)) >> alignmentShiftMedium;
+    return (n & (pageSizeMedium - 1)) >> limitShiftSmall;
 }

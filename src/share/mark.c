@@ -70,10 +70,10 @@ infile_inline(void LiveSet_push(Object* n)) {
 
 inline void prepareRoots(AppThrd* at) {
     Page* p = at->TLAB;
-    if(!Page_available(p)) {
-        at->TLAB = NULL;
-        Page_abandon(p);
-    }
+    if(!Page_available(p)) 
+        if(atomic_compare_exchange_strong(&at->TLAB, &p, NULL))
+            Page_abandon(p);
+    
     task.iterator = 0;
     task.appThrd = at;
     task.snapshot = at->size;
