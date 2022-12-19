@@ -22,6 +22,10 @@ void uboa_storeReference(uboa_reference dst, off_t off, uboa_reference src) {
     *(uboa_reference)(loadValueBarrier(dst)->data + off) = *src;
 }
 
+bool uboa_equal(uboa_reference r1, uboa_reference r2) {
+    return loadValueBarrier(r1) == loadValueBarrier(r2);
+}
+
 int8_t uboa_loadInt8(uboa_reference r, off_t off) {
     return *(int8_t*)(loadValueBarrier(r)->data + off);
 }

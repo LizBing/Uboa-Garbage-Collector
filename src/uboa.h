@@ -4,7 +4,6 @@
 #include <stdint.h>
 #include <stdbool.h>
 #include <stdatomic.h>
-#include <stdio.h>
 
 #ifndef UBOA_GC_SOURCE_
 typedef void* uboa_appThrdHandle;
@@ -26,7 +25,6 @@ void uboa_destroyAppThrdHandle(uboa_appThrdHandle);
 uboa_reference uboa_pushReference(uboa_appThrdHandle);
 void uboa_popReferences(uboa_appThrdHandle, size_t);
 
-// following APIs should be used in safe region
 void uboa_enterSafeRegion();
 void uboa_exitSafeRegion();
 #define uboa_safeRegion(...) \
@@ -43,6 +41,7 @@ void uboa_newArray(uboa_appThrdHandle, uboa_reference, size_t, size_t count, ubo
 uboa_reference uboa_null();
 void uboa_assign(uboa_reference dst, uboa_reference src);
 bool uboa_isNull(uboa_reference);
+bool uboa_equal(uboa_reference, uboa_reference);
 
 int8_t uboa_loadInt8(uboa_reference, off_t);
 int16_t uboa_loadInt16(uboa_reference, off_t);
