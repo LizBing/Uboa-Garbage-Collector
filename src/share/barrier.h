@@ -3,6 +3,6 @@
 
 #include "object.h"
 
-intptr_t loadValueBarrier(uboa_reference);
+Object* loadValueBarrier(uboa_reference);
 
 #endif

@@ -4,7 +4,7 @@
 #include "mark.h"
 #include "forwarding.h"
 
-inline intptr_t loadValueBarrier(uboa_reference r) {
+inline Object* loadValueBarrier(uboa_reference r) {
     intptr_t n = *r;
     if(!n || rt.isCleaningUp)
         return n;
