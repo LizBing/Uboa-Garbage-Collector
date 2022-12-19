@@ -1,3 +1,11 @@
+/**
+ * @file appThrd.c
+ * @author Lizbing (lizbing@relight.com)
+ * 
+ * @copyright Copyright (c) 2022. All rights reserved.
+ * 
+ */
+
 #include "appThrd.h"
 
 static atomic_flag sl = ATOMIC_FLAG_INIT;

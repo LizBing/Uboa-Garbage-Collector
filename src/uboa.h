@@ -1,3 +1,14 @@
+/**
+ * @file uboa.h
+ * @author Lizbing (lizbing@relight.team)
+ * @brief 
+ * @version 0.0.0dev5
+ * @date 2022-12-20
+ * 
+ * @copyright Copyright (c) 2022
+ * 
+ */
+
 #ifndef UBOA_GC_USER_INTERFACE_
 #define UBOA_GC_USER_INTERFACE_
 

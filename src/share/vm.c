@@ -1,3 +1,11 @@
+/**
+ * @file vm.c
+ * @author Lizbing (lizbing@relight.com)
+ * 
+ * @copyright Copyright (c) 2022. All rights reserved.
+ * 
+ */
+
 #include "vm.h"
 #include "runtime.h"
 #include "globals.h"

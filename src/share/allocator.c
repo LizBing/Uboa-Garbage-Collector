@@ -1,3 +1,11 @@
+/**
+ * @file allocator.c
+ * @author Lizbing (lizbing@relight.com)
+ * 
+ * @copyright Copyright (c) 2022. All rights reserved.
+ * 
+ */
+
 #include "allocator.h"
 #include "appThrd.h"
 #include "vm.h"

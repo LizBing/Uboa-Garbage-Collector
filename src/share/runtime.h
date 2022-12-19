@@ -1,3 +1,12 @@
+/**
+ * @file runtime.h
+ * @author Lizbing (lizbing@relight.com)
+ * @brief global runtime information
+ * 
+ * @copyright Copyright (c) 2022. All rights reserved.
+ * 
+ */
+
 #ifndef UBOA_RUNTIME_
 #define UBOA_RUNTIME_
 

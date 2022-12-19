@@ -1,3 +1,12 @@
+/**
+ * @file appThrd.h
+ * @author Lizbing (lizbing@relight.com)
+ * @brief The application thread management
+ * 
+ * @copyright Copyright (c) 2022. All rights reserved.
+ * 
+ */
+
 #ifndef UBOA_GC_APPLICATIONTHREAD_
 #define UBOA_GC_APPLICATIONTHREAD_
 

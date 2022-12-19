@@ -1,3 +1,11 @@
+/**
+ * @file stdafx.h
+ * @author Lizbing (lizbing@relight.com)
+ * 
+ * @copyright Copyright (c) 2022. All rights reserved.
+ * 
+ */
+
 #ifndef ROSA_UTIL_STDAFX_
 #define ROSA_UTIL_STDAFX_
 

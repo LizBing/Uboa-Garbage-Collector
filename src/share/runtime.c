@@ -1,3 +1,12 @@
+/**
+ * @file runtime.c
+ * @author Lizbing (lizbing@relight.com)
+ * @brief 
+ * 
+ * @copyright Copyright (c) 2022. All rights reserved.
+ * 
+ */
+
 #include "runtime.h"
 #include "globals.h"
 

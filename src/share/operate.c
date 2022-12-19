@@ -1,3 +1,12 @@
+/**
+ * @file operate.c
+ * @author Lizbing (lizbing@relight.com)
+ * @brief user operations
+ * 
+ * @copyright Copyright (c) 2022. All rights reserved.
+ * 
+ */
+
 #include "barrier.h"
 
 static const intptr_t null = 0;

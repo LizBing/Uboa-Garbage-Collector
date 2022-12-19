@@ -1,3 +1,11 @@
+/**
+ * @file mark.c
+ * @author Lizbing (lizbing@relight.com)
+ * 
+ * @copyright Copyright (c) 2022. All rights reserved.
+ * 
+ */
+
 #include "mark.h"
 #include "forwarding.h"
 #include "globals.h"

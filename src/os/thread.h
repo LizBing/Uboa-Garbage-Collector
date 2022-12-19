@@ -1,5 +1,14 @@
-#ifndef ROSA_EXT_THREAD_
-#define ROSA_EXT_THREAD_
+/**
+ * @file thread.h
+ * @author Lizbing (lizbing@relight.com)
+ * @brief system thread extension
+ * 
+ * @copyright Copyright (c) 2022. All rights reserved.
+ * 
+ */
+
+#ifndef UBOA_EXT_THREAD_
+#define UBOA_EXT_THREAD_
 
 #include "stdafx.h"
 

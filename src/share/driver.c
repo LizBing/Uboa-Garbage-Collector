@@ -1,3 +1,11 @@
+/**
+ * @file driver.c
+ * @author Lizbing (lizbing@relight.com)
+ * 
+ * @copyright Copyright (c) 2022. All rights reserved.
+ * 
+ */
+
 #include "driver.h"
 #include "globals.h"
 #include "runtime.h"
@@ -7,7 +15,7 @@
 #include "gclog.h"
 
 #include "mark.h"
-#include "cleanUp.h"
+#include "prepare.h"
 #include "relocate.h"
 
 #include "director.h"

@@ -1,3 +1,14 @@
+/**
+ * @file relocate.c
+ * @author Lizbing (lizbing@relight.com)
+ * @brief 
+ * @version 0.0.0dev5
+ * @date 2022-12-20
+ * 
+ * @copyright Copyright (c) 2022. All rights reserved.
+ * 
+ */
+
 #include "relocate.h"
 #include "allocator.h"
 #include "globals.h"

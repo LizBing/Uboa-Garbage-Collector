@@ -1,3 +1,11 @@
+/**
+ * @file barrier.c
+ * @author Lizbing (lizbing@relight.com)
+ * 
+ * @copyright Copyright (c) 2022. All rights reserved.
+ * 
+ */
+
 #include "barrier.h"
 #include "runtime.h"
 #include "address.h"

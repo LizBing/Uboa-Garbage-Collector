@@ -1,3 +1,12 @@
+/**
+ * @file thrdPool.h
+ * @author Lizbing (lizbing@relight.com)
+ * @brief thread pool
+ * 
+ * @copyright Copyright (c) 2022. All rights reserved.
+ * 
+ */
+
 #ifndef ROSA_UTIL_THREADPOOL_
 #define ROSA_UTIL_THREADPOOL_
 

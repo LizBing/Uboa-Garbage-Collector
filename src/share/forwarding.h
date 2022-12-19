@@ -1,3 +1,12 @@
+/**
+ * @file forwarding.h
+ * @author Lizbing (lizbing@relight.com)
+ * @brief Records the forwarding information.
+ * 
+ * @copyright Copyright (c) 2022. All rights reserved.
+ * 
+ */
+
 #ifndef UBOA_GC_FORWARDING_
 #define UBOA_GC_FORWARDING_
 

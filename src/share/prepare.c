@@ -1,4 +1,12 @@
-#include "cleanUp.h"
+/**
+ * @file prepare.c
+ * @author Lizbing (lizbing@relight.com)
+ * 
+ * @copyright Copyright (c) 2022. All rights reserved.
+ * 
+ */
+
+#include "prepare.h"
 #include "workStack.h"
 #include "forwarding.h"
 #include "runtime.h"

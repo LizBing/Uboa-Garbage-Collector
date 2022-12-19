@@ -1,3 +1,11 @@
+/**
+ * @file page.c
+ * @author Lizbing (lizbing@relight.com)
+ * 
+ * @copyright Copyright (c) 2022. All rights reserved.
+ * 
+ */
+
 #include "page.h"
 #include "vm.h"
 #include "globals.h"

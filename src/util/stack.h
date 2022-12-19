@@ -1,3 +1,12 @@
+/**
+ * @file stack.h
+ * @author Lizbing (lizbing@relight.com)
+ * @brief lockfree stack
+ * 
+ * @copyright Copyright (c) 2022. All rights reserved.
+ * 
+ */
+
 #ifndef UBOA_GC_LOCKFREESTACK_
 #define UBOA_GC_LOCKFREESTACK_
 

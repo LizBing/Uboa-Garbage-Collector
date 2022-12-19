@@ -1,3 +1,11 @@
+/**
+ * @file queue.c
+ * @author Lizbing (lizbing@relight.com)
+ * 
+ * @copyright Copyright (c) 2022. All rights reserved.
+ * 
+ */
+
 #include "queue.h"
 
 inline void Queue_init(Queue* this) {
