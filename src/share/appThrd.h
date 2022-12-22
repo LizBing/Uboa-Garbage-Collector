@@ -19,11 +19,12 @@ typedef struct AppThrd AppThrd, *uboa_appThrdHandle;
 struct AppThrd {
     _Atomic(Page*) TLAB;
 
-    atomic_flag flag;
+    bool free;
+    atomic_flag lock;
     AppThrd* prev, *next;
 
     atomic_size_t size;
-    atomic_intptr_t stack[0];
+    uboa_pointer stack[0];
 };
 
 void forEachRoot(void(*func)(AppThrd*));

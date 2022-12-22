@@ -121,15 +121,12 @@ void worker_markFollowings() {
     Object* n = NULL;
     while((n = Following_pop())) {
         bool trigger = false;
-        if(n->oopObj) {
-            mark(&n->oopObj);
-            Oop oop = ((Object*)n->oopObj)->data;
-
+        if(n->oop) {
             for(long i = 0; i < n->count; ++i) {
                 void* base = n->data + n->unit * i;
 
-                for(long j = 0; j < oop->size; ++j)
-                    if(mark(base + oop->map[j]))
+                for(long j = 0; j < n->oop->size; ++j)
+                    if(mark(base + n->oop->map[j]))
                         trigger = true;
             }
         }

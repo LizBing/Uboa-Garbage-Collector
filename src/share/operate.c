@@ -7,11 +7,11 @@
  * 
  */
 
+#include "appThrd.h"
 #include "barrier.h"
 
-static const intptr_t null = 0;
-
-uboa_reference uboa_null() {
+uboa_reference uboa_nullref() {
+    static const uboa_pointer null = 0;
     return &null;
 }
 
@@ -21,6 +21,15 @@ void uboa_assign(uboa_reference dst, uboa_reference src) {
 
 bool uboa_isNull(uboa_reference r) {
     return !*r;
+}
+
+void* uboa_castToObject(uboa_appThrdHandle hdl, uboa_reference r) {
+    uboa_assert(hdl->free, "called 'uboa_getObject' in bound region.");
+    return loadValueBarrier(r)->data;
+}
+
+uboa_pointer uboa_castToPointer(void* p) {
+    return p - sizeof(Object);
 }
 
 void uboa_loadReference(uboa_reference dst, uboa_reference src, off_t off) {

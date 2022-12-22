@@ -126,8 +126,8 @@ inline void* memAlloc(size_t s) {
     return survAllocSmall(align(s, alignmentSmall), NULL);
 }
 
-void uboa_new(uboa_appThrdHandle hdl, uboa_reference r, size_t s, uboa_reference oopRef) {
-    uboa_newArray(hdl, r, s, 1, oopRef);
+void uboa_new(uboa_appThrdHandle hdl, uboa_reference r, size_t s, Oop oop) {
+    uboa_newArray(hdl, r, s, 1, oop);
 }
 
 inline void Object_init(Object* this, Page* p) {
@@ -137,7 +137,9 @@ inline void Object_init(Object* this, Page* p) {
         LargeObject_push(this);
 }
 
-void uboa_newArray(uboa_appThrdHandle hdl, uboa_reference r, size_t s, size_t count, uboa_reference oopRef) {
+void uboa_newArray(uboa_appThrdHandle hdl, uboa_reference r, size_t s, size_t count, Oop oop) {
+    uboa_assert(!hdl->free, "memory allocation should be done in bound region.");
+
     Object* ptr = NULL;
     Page* src = NULL;
 
@@ -156,7 +158,7 @@ void uboa_newArray(uboa_appThrdHandle hdl, uboa_reference r, size_t s, size_t co
     recordAllocation(size);
 
     Object_init(ptr, src);
-    uboa_assign(&ptr->oopObj, oopRef);
+    ptr->oop = oop;
     ptr->count = count;
     ptr->size = size;
     ptr->unit = s;

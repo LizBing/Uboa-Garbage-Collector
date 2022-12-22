@@ -3,8 +3,8 @@ std = -std=c11
 out = build/lib/libuboa.a
 
 macro = \
-	-DBUILD_DATE="\"12/19/2022, Monday\"" \
-	-DGC_VERSION="\"0.0.0.dev4\"" \
+	-DBUILD_DATE="\"12/12/2022, Tursday\"" \
+	-DGC_VERSION="\"0.0.0.dev5\"" \
 	-DCOPYRIGHT="\"Copyright\(c\) 2022, Lizbing. All rights reserved.\"" \
 	-DGC_PRODUCT_NAME="\"Uboa Garbage Collector\"" \
 	-DFEEDBACK_EMAIL="\"feedback@relight.team\""

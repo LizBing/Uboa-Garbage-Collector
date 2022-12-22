@@ -11,7 +11,6 @@
 #define UBOA_GC_OBJECT_
 
 #include "page.h"
-#include "oop.h"
 
 struct Object {
     ListNode nodeFollowing, nodeLiveSet;
@@ -19,7 +18,7 @@ struct Object {
 
     Page* page;
 
-    atomic_intptr_t oopObj;
+    Oop oop;
     size_t size, unit, count;
     
     byte data[0];

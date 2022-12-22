@@ -31,12 +31,12 @@ void forEachRoot(void(*func)(AppThrd*)) {
         n = iter;
         iter = n->next;
 
-        atomic_flag_test_and_set(&n->flag);
+        atomic_flag_test_and_set(&n->lock);
 
         atomic_flag_clear(&sl);
         
         func(n);
-        atomic_flag_clear(&n->flag);
+        atomic_flag_clear(&n->lock);
     }
 }
 
@@ -71,7 +71,7 @@ void uboa_destroyAppThrdHandle(uboa_appThrdHandle hdl) {
 
     atomic_flag_clear(&sl);
 
-    while(atomic_flag_test_and_set(&hdl->flag));
+    while(atomic_flag_test_and_set(&hdl->lock));
 }
 
 uboa_reference uboa_pushReference(uboa_appThrdHandle hdl) {
@@ -82,4 +82,12 @@ uboa_reference uboa_pushReference(uboa_appThrdHandle hdl) {
 
 void uboa_popReferences(uboa_appThrdHandle hdl, size_t n) {
     hdl->size -= n;
+}
+
+void uboa_enterRiskRegion(uboa_appThrdHandle hdl) {
+    hdl->free = true;
+}
+
+void uboa_exitRiskRegion(uboa_appThrdHandle hdl) {
+    hdl->free = false;
 }
